@@ -2,10 +2,10 @@ from vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
 import json
 import settings
 from rich import print
-from rich.console import _COLOR_SYSTEMS_NAMES, Console
 from rich.markdown import Markdown
 from rich.tree import Tree
 import argparse
+from pyfiglet import Figlet
 
 api_key = settings.AP
 vt_api_files = VirusTotalAPIFiles(api_key)
@@ -244,12 +244,11 @@ def file_output_txt(path, data):
     with open(file_txt, 'w', encoding='utf-8') as f:
         print(data, file=f)
 
-# mdファイルからの出力
+# ASCIIartの出力
 if args.quit_showing_asciiart == False:
-    console = Console()
-    with open("C:/Users/nflabs-11/Desktop/white_workers/white_workers/README.md", encoding="utf-8") as f:
-        markdown = Markdown(f.read())
-    console.print(markdown)
+    f = Figlet(font="slant")
+    msg = f.renderText("white_workers")
+    print(msg)
 
 # optionで出力するツリー構造データを変更(3回間違えるとプログラムを終了)
 for i in range(3):
