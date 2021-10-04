@@ -1,8 +1,9 @@
 import pandas as pd
+import csv
 
 # df = pd.read_json('./MWScup_FFRI Datasets/ffridataset2021_malware.jsonl', orient='records', lines=True)
 
-def data_read(path, mode):
+def data_read(path, mode, writer):
     """
     ファイルから1行ずつ読み込む
     """
@@ -18,11 +19,12 @@ def data_read(path, mode):
             ssdeep = "".join(extract(row, "ssdeep"))
             # print("sha256:", sha256)
             # print("ssdeep:", ssdeep)
+            writer.writerow([sha256,ssdeep])
             # print("\n")
             row = f.readline() #次の行を読み込む
             i += 1
             # if i == 10:
-            #     break
+            #   break
             print(i)
         
 
@@ -52,8 +54,10 @@ def extract(str_origin, str_find):
 
 if __name__ == "__main__":
     #読み込み対象ファイル
-    path = './MWScup_FFRI Datasets/ffridataset2021_malware.jsonl'
+    path = 'C:/Users/nflabs-28/Downloads/MWScup_FFRI Datasets/MWScup_FFRI Datasets/ffridataset2021_malware.jsonl'
     #ファイルモード
     mode = "r" #読み込み用
-
-    data_read(path, mode)
+    f = open("out.csv", "a", newline="")
+    writer = csv.writer(f)
+    data_read(path, mode, writer)
+    f.close()

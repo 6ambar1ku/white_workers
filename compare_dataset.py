@@ -4,7 +4,7 @@ import sys
 
 def comp(ssdeep1):
 
-    csv_file = open("../malware.csv", "r", encoding="ms932", errors="", newline="" )
+    csv_file = open("../out.csv", "r", encoding="ms932", errors="", newline="" )
     # リスト形式で読み込む
     f = csv.reader(csv_file, delimiter=",", doublequote=True, lineterminator="\r\n", quotechar='"', skipinitialspace=True)
     header = next(f)
@@ -15,9 +15,9 @@ def comp(ssdeep1):
         if pc > 100:
             break
         pc += 1
-        ssdeep2 = row[4]
+        ssdeep2 = row[1]
         compare_value = ssdeep.compare(ssdeep1,ssdeep2)
-        dic[row[3]] = compare_value
+        dic[row[0]] = compare_value
 
     dic_sorted = sorted(dic.items(), key=lambda x:x[1], reverse = True)
     
@@ -29,4 +29,3 @@ def comp(ssdeep1):
         return_dic[dic_sorted[i][0]] = dic_sorted[i][1] 
 
     return return_dic
-
