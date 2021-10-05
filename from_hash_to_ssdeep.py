@@ -300,31 +300,34 @@ for i in range(3):
             print("[red]The number of characters is not appropriate[/red]")
             exit()
         result_ssdeep(md5)
-        sha_256_list = compd.comp(ssdeep)
+        md_5_list = compd.comp(ssdeep)
         for i in range(3):
-            print("====================================================================================================================================")
-            print("similarity:"+str(sha_256_list[i][1]))
-            result_behavior(sha_256_list[i][0], flag)
-            if flag == 1:
-                print("default")
-            elif flag == 2:
-                print("default+processes")
-            elif flag == 3:
-                print("default+dns_lookups")
-            elif flag == 4:
-                print("default+files_copied")
-            elif flag == 5:
-                print("default+ip_traffic")
-            elif flag == 6:
-                print("all")
-        
-            # 作成した木構造データの出力
-            print("\n")
-            print(tree)
-            print("\n")
-            # txt出力するときはfile_output_txt関数を呼び出し
-            if args.file_output_txt != None:
-                file_output_txt(args.file_output_txt, tree)
+            if md_5_list[i][1] == 0:
+                break
+            else:
+                print("====================================================================================================================================")
+                print("similarity:"+str(md_5_list[i][1]))
+                result_behavior(md_5_list[i][0], flag)
+                if flag == 1:
+                    print("default")
+                elif flag == 2:
+                    print("default+processes")
+                elif flag == 3:
+                    print("default+dns_lookups")
+                elif flag == 4:
+                    print("default+files_copied")
+                elif flag == 5:
+                    print("default+ip_traffic")
+                elif flag == 6:
+                    print("all")
+            
+                # 作成した木構造データの出力
+                print("\n")
+                print(tree)
+                print("\n")
+                # txt出力するときはfile_output_txt関数を呼び出し
+                if args.file_output_txt != None:
+                    file_output_txt(args.file_output_txt, tree)
         print("====================================================================================================================================")
         break
     
@@ -334,65 +337,71 @@ for i in range(3):
             print("[red]The number of characters is not appropriate[/red]")
             exit()
         result_ssdeep(sha_1)
-        sha_256_list = compd.comp(ssdeep)
+        sha_1_list = compd.comp(ssdeep)
         for i in range(3):
-            print("====================================================================================================================================")
-            print("similarity:"+str(sha_256_list[i][1]))
-            result_behavior(sha_256_list[i][0], flag)
-            if flag == 1:
-                print("default")
-            elif flag == 2:
-                print("default+processes")
-            elif flag == 3:
-                print("default+dns_lookups")
-            elif flag == 4:
-                print("default+files_copied")
-            elif flag == 5:
-                print("default+ip_traffic")
-            elif flag == 6:
-                print("all")
-        
-            # 作成した木構造データの出力
-            print("\n")
-            print(tree)
-            print("\n")
-            # txt出力するときはfile_output_txt関数を呼び出し
-            if args.file_output_txt != None:
-                file_output_txt(args.file_output_txt, tree)
+            if sha_1_list[i][1] == 0:
+                break
+            else:
+                print("====================================================================================================================================")
+                print("similarity:"+str(sha_1_list[i][1]))
+                result_behavior(sha_1_list[i][0], flag)
+                if flag == 1:
+                    print("default")
+                elif flag == 2:
+                    print("default+processes")
+                elif flag == 3:
+                    print("default+dns_lookups")
+                elif flag == 4:
+                    print("default+files_copied")
+                elif flag == 5:
+                    print("default+ip_traffic")
+                elif flag == 6:
+                    print("all")
+            
+                # 作成した木構造データの出力
+                print("\n")
+                print(tree)
+                print("\n")
+                # txt出力するときはfile_output_txt関数を呼び出し
+                if args.file_output_txt != None:
+                    file_output_txt(args.file_output_txt, tree)
         print("====================================================================================================================================")
         break
     
     elif num_hash == "3":
-        sha_256 = "ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa" # input("You selected sha-256. Please enter your hash value:")
+        sha_256 = input("You selected sha-256. Please enter your hash value:")
         if len(sha_256)!=64:
             print("[red]The number of characters is not appropriate[/red]")
             exit()
         ssdeep = result_ssdeep(sha_256)
         sha_256_list = compd.comp(ssdeep)
         for i in range(3):
-            print("====================================================================================================================================")
-            print("similarity:"+str(sha_256_list[i][1]))
-            result_behavior(sha_256_list[i][0], flag)
-            if flag == 1:
-                print("default")
-            elif flag == 2:
-                print("default+processes")
-            elif flag == 3:
-                print("default+dns_lookups")
-            elif flag == 4:
-                print("default+files_copied")
-            elif flag == 5:
-                print("default+ip_traffic")
-            elif flag == 6:
-                print("all")
-        
-            # 作成した木構造データの出力
-            print("\n")
-            print(tree)
-            print("\n")
-            # txt出力するときはfile_output_txt関数を呼び出し
-            if args.file_output_txt != None:
-                file_output_txt(args.file_output_txt, tree)
+            if sha_256_list[i][1] == 0:
+                break
+            else:
+                print("====================================================================================================================================")
+                print("similarity:"+str(sha_256_list[i][1]))
+                result_behavior(sha_256_list[i][0], flag)
+                if flag == 1:
+                    print("default")
+                elif flag == 2:
+                    print("default+processes")
+                elif flag == 3:
+                    print("default+dns_lookups")
+                elif flag == 4:
+                    print("default+files_copied")
+                elif flag == 5:
+                    print("default+ip_traffic")
+                elif flag == 6:
+                    print("all")
+            
+                # 作成した木構造データの出力
+                print("\n")
+                print(tree)
+                print("\n")
+                # txt出力するときはfile_output_txt関数を呼び出し
+                if args.file_output_txt != None:
+                    file_output_txt(args.file_output_txt, tree)
         print("====================================================================================================================================")
         break
     

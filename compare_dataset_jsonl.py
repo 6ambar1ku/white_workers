@@ -9,7 +9,7 @@ def comp(ssdeep1):
     with open("Desktop/white_workers/MWScup_FFRI Datasets/ffridataset2021_malware.jsonl", "r") as f:
         row = f.readline() #1行目を読み込む
         i = 0
-        pbar = tqdm(total=10000)
+        pbar = tqdm(total=75000)
         while row:
             sha256 = "".join(extract(row, "sha256"))
             ssdeep2 = "".join(extract(row, "ssdeep"))
@@ -20,8 +20,6 @@ def comp(ssdeep1):
             row = f.readline() #次の行を読み込む
             i += 1
             pbar.update(1)
-            if i == 10000:
-                break
         pbar.close()
         
     dic_sorted = sorted(dic.items(), key=lambda x:x[1], reverse = True)
