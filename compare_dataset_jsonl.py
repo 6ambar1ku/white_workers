@@ -6,7 +6,7 @@ def comp(ssdeep1):
     # ファイルから1行ずつ読み込む
     dic = {}
 
-    with open("Desktop/white_workers/MWScup_FFRI Datasets/ffridataset2021_malware.jsonl", "r") as f:
+    with open("../MWScup_FFRI Datasets/ffridataset2021_malware.jsonl", "r") as f:
         row = f.readline() #1行目を読み込む
         i = 0
         pbar = tqdm(total=75000)
