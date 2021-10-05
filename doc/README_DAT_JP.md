@@ -93,3 +93,4 @@
 | transport_layer_protocol : | ICMP, IGMP, TCP, UDP, ESP, AH, L2TP, SCTP　のうちのいずれか.                       | 
 | destination_ip : | IPアドレス                                       | 
 | destination_port : | ポート番号                                    | 
+|              |                                                       | 
