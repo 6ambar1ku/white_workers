@@ -1,5 +1,5 @@
-## [【日本語表記】]()
-## [【简体中文显示】]()
+## [【日本語表記】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT_JP.md)
+## [【简体中文显示】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT_CH.md)
 # Data
 ##  <font color="red">command_executions</font>
 * 指定されたファイルの分析中に観察されたシェルコマンド実行のリストです。
