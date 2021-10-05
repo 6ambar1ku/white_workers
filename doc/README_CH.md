@@ -1,5 +1,5 @@
 ## [【In English】]()
-##  [【日本語表示】]()
+##  [【日本語表示】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_JP.md)
 ```
            __    _ __                              __
  _      __/ /_  (_) /____     _      ______  _____/ /_____  __________

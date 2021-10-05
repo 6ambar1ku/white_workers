@@ -1,5 +1,5 @@
-## [【日本語表記】]()
-##  [【简体中文显示】]()
+## [【日本語表記】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_JP.md)
+##  [【简体中文显示】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_CH.md)
 ```
            __    _ __                              __
  _      __/ /_  (_) /____     _      ______  _____/ /_____  __________
