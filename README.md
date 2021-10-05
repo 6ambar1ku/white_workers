@@ -96,7 +96,7 @@ Please run as follows after git clone
 
 ```6```：Outputs all 1,2,3,4,5 data. 
 
-※ Please refer to [here]() for the contents of the above data. 
+※ Please refer to [here](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT.md) for the contents of the above data. 
 <br></br>
 
 ### Second Option：
