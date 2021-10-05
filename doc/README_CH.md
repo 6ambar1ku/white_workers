@@ -1,4 +1,4 @@
-## [【In English】]()
+## [【In English】](https://github.com/6ambar1ku/white_workers/blob/main/README.md)
 ##  [【日本語表示】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_JP.md)
 ```
            __    _ __                              __
