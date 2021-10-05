@@ -1,3 +1,5 @@
+## [【日本語表記】]()
+## [【简体中文显示】]()
 # Data
 ##  <font color="red">command_executions</font>
 * shell command executions observed during the analysis of the given file.
@@ -52,6 +54,15 @@
 | RAT : | remote access trojan, may listen for inbound connections. |
 | TROJAN : | trojan or bot. |
 | SPREADER : | spreads to USB, other drives, network, etc. Work-like functionality. |
+|              |                                                       | 
+
+##  <font color="yellow">proccesses</font>
+* This contains a list of created processes by a given file but do not show  processes created by a given process( children ). It is a list of dictionaries, each one cpntains the following fields :
+
+|              |                                                       | 
+| ------------ | ----------------------------------------------------- | 
+| proccess_name :   | proccess name.                              | 
+| proccess_id : | ID of the proccess | 
 |              |                                                       | 
 
 ##  <font color="purple">dns_lookups</font>

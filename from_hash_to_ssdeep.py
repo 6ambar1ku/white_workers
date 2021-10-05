@@ -2,10 +2,11 @@ from vtapi3 import VirusTotalAPIFiles, VirusTotalAPIError
 import json
 import settings
 from rich import print
-from rich.markdown import Markdown
 from rich.tree import Tree
 import argparse
 from pyfiglet import Figlet
+import compare_dataset_jsonl as compd
+import datetime
 
 api_key = settings.AP
 vt_api_files = VirusTotalAPIFiles(api_key)
@@ -31,7 +32,7 @@ def result_ssdeep(hash1):
         if vt_api_files.get_last_http_error() == vt_api_files.HTTP_OK:
             result_ssdeep = json.loads(result_ssdeep)
             ssdeep = result_ssdeep["data"]["attributes"]["ssdeep"]
-            print(ssdeep)
+            return ssdeep
             
         else:
             print('HTTP Error [' + str(vt_api_files.get_last_http_error()) +']')
@@ -45,14 +46,6 @@ def  result_behavior(hash2, flag):
     else:
         if vt_api_files.get_last_http_error() == vt_api_files.HTTP_OK:
             result_behavior = json.loads(result_behavior)
-
-             
-            # テスト用(jsonファイル出力)
-            # result = result_behavior
-            # result = json.dumps(result, sort_keys=False, indent=4)
-            # with open("./test.json", 'a') as outfile:
-                # print(result, file=outfile)
-
             count_of_attributes = len(result_behavior["data"])
             # すべての値を列挙する
             for i in range(count_of_attributes):
@@ -133,11 +126,17 @@ def  result_behavior(hash2, flag):
                         list_dns = result_behavior["data"][i]["attributes"]["dns_lookups"]
                         count_of_dns = len(result_behavior["data"][i]["attributes"]["dns_lookups"])
                         for j in range(count_of_dns):
-                            count_of_dns_resolved = len(result_behavior["data"][i]["attributes"]["dns_lookups"][j]["resolved_ips"])
-                            resolved_ips = hostname.add(list_dns[j]["hostname"])
-                            resolved_ips.add("[purple]resolved_ips")
-                            for k in range(count_of_dns_resolved):
-                                resolved_ips.add(list_dns[j]["resolved_ips"][k])                             
+                            if(("hostname" in list_dns) == True and ("resolved_ips" in list_dns) == True):
+                                count_of_dns_resolved = len(result_behavior["data"][i]["attributes"]["dns_lookups"][j]["resolved_ips"])
+                                resolved_ips = hostname.add(list_dns[j]["hostname"])
+                                resolved_ips.add("[purple]resolved_ips")
+                                for k in range(count_of_dns_resolved):
+                                    resolved_ips.add(list_dns[j]["resolved_ips"][k])
+                            else:
+                                resolved_ips = hostname.add(list_dns[j]["hostname"])
+                                resolved_ips_null = resolved_ips.add("[purple]resolved_ips")
+                                resolved_ips_null.add("NULL")
+
                     else:
                         dns_tree.add("NULL")
 
@@ -196,11 +195,17 @@ def  result_behavior(hash2, flag):
                         list_dns = result_behavior["data"][i]["attributes"]["dns_lookups"]
                         count_of_dns = len(result_behavior["data"][i]["attributes"]["dns_lookups"])
                         for j in range(count_of_dns):
-                            count_of_dns_resolved = len(result_behavior["data"][i]["attributes"]["dns_lookups"][j]["resolved_ips"])
-                            resolved_ips = hostname.add(list_dns[j]["hostname"])
-                            resolved_ips.add("[purple]resolved_ips")
-                            for k in range(count_of_dns_resolved):
-                                resolved_ips.add(list_dns[j]["resolved_ips"][k])
+                            if(("hostname" in list_dns) == True and ("resolved_ips" in list_dns) == True):
+                                count_of_dns_resolved = len(result_behavior["data"][i]["attributes"]["dns_lookups"][j]["resolved_ips"])
+                                resolved_ips = hostname.add(list_dns[j]["hostname"])
+                                resolved_ips.add("[purple]resolved_ips")
+                                for k in range(count_of_dns_resolved):
+                                    resolved_ips.add(list_dns[j]["resolved_ips"][k])
+                            else:
+                                resolved_ips = hostname.add(list_dns[j]["hostname"])
+                                resolved_ips_null = resolved_ips.add("[purple]resolved_ips")
+                                resolved_ips_null.add("NULL")
+
                     else:
                         dns_tree.add("NULL")
 
@@ -238,10 +243,11 @@ def  result_behavior(hash2, flag):
         else:
             print('HTTP Error [' + str(vt_api_files.get_last_http_error()) +']')
 
-# txtとしてデータを保存するための関数
+# txtとしてデータを保存するための関数(時間をファイル名に出力)
+dt_now = datetime.datetime.now()
 def file_output_txt(path, data):
-    file_txt = path + "white_workers.txt"
-    with open(file_txt, 'w', encoding='utf-8') as f:
+    file_txt = path + str(dt_now.month) + "-" +str(dt_now.day) + "-" + str(dt_now.hour) + "-" + str(dt_now.minute) + "_white_workers.txt"
+    with open(file_txt, 'a', encoding='utf-8') as f:
         print(data, file=f)
 
 # ASCIIartの出力
@@ -294,6 +300,32 @@ for i in range(3):
             print("[red]The number of characters is not appropriate[/red]")
             exit()
         result_ssdeep(md5)
+        sha_256_list = compd.comp(ssdeep)
+        for i in range(3):
+            print("====================================================================================================================================")
+            print("similarity:"+str(sha_256_list[i][1]))
+            result_behavior(sha_256_list[i][0], flag)
+            if flag == 1:
+                print("default")
+            elif flag == 2:
+                print("default+processes")
+            elif flag == 3:
+                print("default+dns_lookups")
+            elif flag == 4:
+                print("default+files_copied")
+            elif flag == 5:
+                print("default+ip_traffic")
+            elif flag == 6:
+                print("all")
+        
+            # 作成した木構造データの出力
+            print("\n")
+            print(tree)
+            print("\n")
+            # txt出力するときはfile_output_txt関数を呼び出し
+            if args.file_output_txt != None:
+                file_output_txt(args.file_output_txt, tree)
+        print("====================================================================================================================================")
         break
     
     elif num_hash == "2":
@@ -302,6 +334,32 @@ for i in range(3):
             print("[red]The number of characters is not appropriate[/red]")
             exit()
         result_ssdeep(sha_1)
+        sha_256_list = compd.comp(ssdeep)
+        for i in range(3):
+            print("====================================================================================================================================")
+            print("similarity:"+str(sha_256_list[i][1]))
+            result_behavior(sha_256_list[i][0], flag)
+            if flag == 1:
+                print("default")
+            elif flag == 2:
+                print("default+processes")
+            elif flag == 3:
+                print("default+dns_lookups")
+            elif flag == 4:
+                print("default+files_copied")
+            elif flag == 5:
+                print("default+ip_traffic")
+            elif flag == 6:
+                print("all")
+        
+            # 作成した木構造データの出力
+            print("\n")
+            print(tree)
+            print("\n")
+            # txt出力するときはfile_output_txt関数を呼び出し
+            if args.file_output_txt != None:
+                file_output_txt(args.file_output_txt, tree)
+        print("====================================================================================================================================")
         break
     
     elif num_hash == "3":
@@ -309,27 +367,33 @@ for i in range(3):
         if len(sha_256)!=64:
             print("[red]The number of characters is not appropriate[/red]")
             exit()
-        # result_ssdeep(sha_256)
-        result_behavior(sha_256, flag)
-        if flag == 1:
-            print("default")
-        elif flag == 2:
-            print("default+processes")
-        elif flag == 3:
-            print("default+dns_lookups")
-        elif flag == 4:
-            print("default+files_copied")
-        elif flag == 5:
-            print("default+ip_traffic")
-        elif flag == 6:
-            print("all")
+        ssdeep = result_ssdeep(sha_256)
+        sha_256_list = compd.comp(ssdeep)
+        for i in range(3):
+            print("====================================================================================================================================")
+            print("similarity:"+str(sha_256_list[i][1]))
+            result_behavior(sha_256_list[i][0], flag)
+            if flag == 1:
+                print("default")
+            elif flag == 2:
+                print("default+processes")
+            elif flag == 3:
+                print("default+dns_lookups")
+            elif flag == 4:
+                print("default+files_copied")
+            elif flag == 5:
+                print("default+ip_traffic")
+            elif flag == 6:
+                print("all")
         
-        # 作成した木構造データの出力
-        print("\n")
-        print(tree)
-        # txt出力するときはfile_output_txt関数を呼び出し
-        if args.file_output_txt != None:
-            file_output_txt(args.file_output_txt, tree)
+            # 作成した木構造データの出力
+            print("\n")
+            print(tree)
+            print("\n")
+            # txt出力するときはfile_output_txt関数を呼び出し
+            if args.file_output_txt != None:
+                file_output_txt(args.file_output_txt, tree)
+        print("====================================================================================================================================")
         break
     
     else:
