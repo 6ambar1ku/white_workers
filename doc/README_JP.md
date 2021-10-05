@@ -96,7 +96,7 @@ VT_API_KEY = {your API key}
 
 ```6```：1,2,3,4,5のデータ全てを出力します。
 
-※なお、上記データの内容につきましては[こちら]()を参照してください。
+※なお、上記データの内容につきましては[こちら](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT_JP.md)を参照してください。
 <br></br>
 
 ### Second Option：
