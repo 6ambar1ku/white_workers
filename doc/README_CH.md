@@ -52,6 +52,7 @@ VT_API_KEY = {your API key}
 > pip install python-dotenv
 ```
 
+
 * rich
 ```
 > pip install rich
