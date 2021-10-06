@@ -67,6 +67,12 @@ Please run as follows after git clone
 > pip install tqdm
 ```
 
+##  data
+Please input the path where the json file is placed in the following path in  line 10 of the compare_dataset_jsonl.py file.(This tool uses the file jsonl file provided by FFRI Security, Inc.)
+```
+with open("<your data path>/*.jsonl", "r") as f:
+```
+
 # demo
 ![demo](https://raw.githubusercontent.com/wiki/6ambar1ku/white_workers/demo/white_workers.gif)
 

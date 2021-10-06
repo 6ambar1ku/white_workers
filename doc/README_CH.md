@@ -67,6 +67,12 @@ VT_API_KEY = {your API key}
 > pip install tqdm
 ```
 
+## data 
+在“compare_dataset_jsonl.py”文件的第10行，将以下路径替换为您自己的数据集路径。 （本工具假设使用FFRI Security Co., Ltd.提供的jsonl文件）
+```
+with open("<your data path>/*.jsonl", "r") as f:
+```
+
 # demo
 ![demo](https://raw.githubusercontent.com/wiki/6ambar1ku/white_workers/demo/white_workers.gif)
 
