@@ -62,6 +62,11 @@ VT_API_KEY = {your API key}
 > pip install pyfiglet
 ```
 
+* tqdm
+```
+> pip install tqdm
+```
+
 # demo
 ![demo](https://raw.githubusercontent.com/wiki/6ambar1ku/white_workers/demo/white_workers.gif)
 
