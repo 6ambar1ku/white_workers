@@ -11,15 +11,13 @@
 ```
 Virus Totalを用いて、ssdeepの値を比較後に類似マルウェアのふるまいを提示するツール
 <br></br>
-<br></br>
-
 
 # Description
 本ツールはマルウェア（検体）のハッシュ値から類似性の高いマルウェアをデータセットから検出し、それらの挙動、通信先等を提示することで、OSINT活動、インシデントレスポンスを支援します。
-<br></br>​
+
 # VirusTotalApi v3
 VriusTotal上の情報にスクリプトからのアクセスが可能になります。なお、本ツールを使用するに当たりまして、VirusTotal Communityにてアカウント作成および、パーソナルAPIキーの取得が必要です。当サイト([VirusTotal Communityログイン](https://www.virustotal.com/gui/join-us))にて手続きをお願いいたします。
-<br></br>
+
 また、APIの種類および機能については以下の通りですので、使用用途に合わせた選択をして下さい。
 * Public API
     * 本ツールを1分間に1回使用できます。1日の使用上限は125回までです。
@@ -27,7 +25,7 @@ VriusTotal上の情報にスクリプトからのアクセスが可能になり�
 * Premium API
     * 本ツールの使用上限がなくなります。
     * 使用は有料です。(VirusTotalの案内に従ってください)
-<br></br>
+
 # Settings
 ## API
 1. pythonの実行ファイルのディレクトリに.envファイルを作成します。
@@ -44,7 +42,6 @@ VT_API_KEY = {your API key}
 ```
 (WINDOWS)> python setup.py install
 ```
-
 
 * vtapi3
 ```
@@ -65,12 +62,10 @@ VT_API_KEY = {your API key}
 ```
 > pip install pyfiglet
 ```
-<br></br>
+
 
 # demo
 ![demo](https://raw.githubusercontent.com/wiki/6ambar1ku/white_workers/demo/white_workers.gif)
-
-<br></br>
 
 # Usage
 ## Command Options
@@ -97,7 +92,6 @@ VT_API_KEY = {your API key}
 ```6```：1,2,3,4,5のデータ全てを出力します。
 
 ※なお、上記データの内容につきましては[こちら](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT_JP.md)を参照してください。
-<br></br>
 
 ### Second Option：
 ```1```：調査したいマルウェアのhash値にmd5を使用します。
@@ -106,12 +100,9 @@ VT_API_KEY = {your API key}
 
 ```3```：調査したいマルウェアのhash値にsha-256を使用します。
 
-
-
-<br></br>
 # License
 ### [MIT](https://github.com/6ambar1ku/white_workers/blob/main/LICENSE)
-<br></br>
+
 # Author
 * [6ambar1ku](https://github.com/6ambar1ku) 
 * [marumaru-yamayama](https://github.com/marumaru-yamayama)
