@@ -47,7 +47,6 @@ VT_API_KEY = {your API key}
 > pip install vtapi3
 ```
 
-
 * dotenv
 ```
 > pip install python-dotenv
