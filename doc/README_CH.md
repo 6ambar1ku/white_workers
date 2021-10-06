@@ -10,16 +10,13 @@
 
 ```
 一个使用VirusTotal比较ssdeep值然后呈现相似恶意软件行为的工具。 
-<br></br>
-<br></br>
-
 
 # Description
 该工具通过从数据集中的恶意软件（样本）的哈希值中检测具有高相似性的恶意软件并展示其行为、通信目的地等、来支持OSINT活动和事件响应。
-<br></br>​
+​
 # VirusTotalApi v3
 可以从脚本访问VriusTotal上的信息。要使用此工、您需要在VirusTotal Community上创建一个帐户并获取个人API密钥。请在本网站（[VirusTotal 社区登录](https://www.virustotal.com/gui/join-us)）上完成程序。 
-<br></br>
+
 另外、API的种类和功能如下、请根据用途进行选择。 
 * Public API
     * 您可以每分钟使用一次此工具。每日使用次数上限为125次。
@@ -27,7 +24,7 @@
 * Premium API
     * 此工具的使用没有上限。
     * 使用需要付费。（遵循 VirusTotal 指南）
-<br></br>
+
 # Settings
 ## API
 1.在python可执行目录中创建一个".env"文件。
@@ -44,7 +41,6 @@ VT_API_KEY = {your API key}
 ```
 (WINDOWS)> python setup.py install
 ```
-
 
 * vtapi3
 ```
@@ -65,12 +61,9 @@ VT_API_KEY = {your API key}
 ```
 > pip install pyfiglet
 ```
-<br></br>
 
 # demo
 ![demo](https://raw.githubusercontent.com/wiki/6ambar1ku/white_workers/demo/white_workers.gif)
-
-<br></br>
 
 # Usage
 ## Command Options
@@ -79,7 +72,6 @@ VT_API_KEY = {your API key}
 ```-q```：在运行时不输出 Asciiart。
 
 ```-f <file_path>```：将树结构数据输出为 txt 文件。 
-<br></br>
 
 ## Program Options
 
@@ -97,7 +89,6 @@ VT_API_KEY = {your API key}
 ```6```：输出所有1,2,3,4,5数据。 
 
 ※以上数据内容请参考[这里](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT_CH.md)。 
-<br></br>
 
 ### Second Option：
 ```1```：使用md5作为您要调查的恶意软件的哈希值。 
@@ -106,12 +97,9 @@ VT_API_KEY = {your API key}
 
 ```3```：使用sha-256作为您要调查的恶意软件的哈希值。 
 
-
-
-<br></br>
 # License
 ### [MIT](https://github.com/6ambar1ku/white_workers/blob/main/LICENSE)
-<br></br>
+
 # Author
 * [6ambar1ku](https://github.com/6ambar1ku) 
 * [marumaru-yamayama](https://github.com/marumaru-yamayama)

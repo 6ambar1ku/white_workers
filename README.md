@@ -10,16 +10,13 @@
 
 ```
 White_workers present similar malware behavior ( by using VirusTotal ) after comparing ssdeep values.
-<br></br>
-<br></br>
-
 
 # Description
 White_workers supports OSINT activities and incident response by detecting malware with high similarity from the hash value of malware from the dataset and presenting their behavior, started proccesses, etc. 
-<br></br>​
+​
 # VirusTotalApi v3
 If you use VirusTotalApi v3, the information on VriusTotal can be accessed from the script. To use this tool, you need to create an account and obtain a personal API key on VirusTotal Community. Please complete the procedure on this site ([VirusTotal Community Login](https://www.virustotal.com/gui/join-us)). 
-<br></br>
+
 In addition, the types and functions of the API are as follows, so please select the one you want to use. 
 * Public API
     * You can use this tool once a minute. The daily usage limit is 125 times.
@@ -27,7 +24,7 @@ In addition, the types and functions of the API are as follows, so please select
 * Premium API
     * No upper limit to the usage of this tool.
     * There is a charge for use. (Follow VirusTotal guidance) 
-<br></br>
+
 # Settings
 ## API
 1. Create an ".env" file in the python executable directory. 
@@ -44,7 +41,6 @@ Please run as follows after git clone
 ```
 (WINDOWS)> python setup.py install
 ```
-
 
 * vtapi3
 ```
@@ -65,12 +61,9 @@ Please run as follows after git clone
 ```
 > pip install pyfiglet
 ```
-<br></br>
 
 # demo
 ![demo](https://raw.githubusercontent.com/wiki/6ambar1ku/white_workers/demo/white_workers.gif)
-
-<br></br>
 
 # Usage
 ## Command Options
@@ -79,7 +72,6 @@ Please run as follows after git clone
 ```-q```：Does not output Ascii art at runtime.
 
 ```-f <file_path>```：Outputs tree structure data as a txt file.
-<br></br>
 
 ## Program Options
 
@@ -97,7 +89,6 @@ Please run as follows after git clone
 ```6```：Outputs all 1,2,3,4,5 data. 
 
 ※ Please refer to [here](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT.md) for the contents of the above data. 
-<br></br>
 
 ### Second Option：
 ```1```：Use md5 for the hash value of the malware you want to investigate. 
@@ -106,12 +97,9 @@ Please run as follows after git clone
 
 ```3```：Use sha-256 for the hash value of the malware you want to investigate. 
 
-
-
-<br></br>
 # License
 ### [MIT](https://github.com/6ambar1ku/white_workers/blob/main/LICENSE)
-<br></br>
+
 # Author
 * [6ambar1ku](https://github.com/6ambar1ku) 
 * [marumaru-yamayama](https://github.com/marumaru-yamayama)

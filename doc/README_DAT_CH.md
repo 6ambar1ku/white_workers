@@ -1,5 +1,5 @@
 ## [【In English】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT.md)
-## [【日本語表記】]()
+## [【日本語表記】](https://github.com/6ambar1ku/white_workers/blob/main/doc/README_DAT_JP.md)
 # Data
 ##  <font color="red">command_executions</font>
 *　在分析指定文件期间观察到的 shell 命令执行列表。

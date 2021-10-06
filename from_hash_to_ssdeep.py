@@ -299,7 +299,7 @@ for i in range(3):
         if len(md5)!=32:
             print("[red]The number of characters is not appropriate[/red]")
             exit()
-        result_ssdeep(md5)
+        ssdeep = result_ssdeep(md5)
         md_5_list = compd.comp(ssdeep)
         for i in range(3):
             if md_5_list[i][1] == 0:
@@ -336,7 +336,7 @@ for i in range(3):
         if len(sha_1)!=40:
             print("[red]The number of characters is not appropriate[/red]")
             exit()
-        result_ssdeep(sha_1)
+        ssdeep = result_ssdeep(sha_1)
         sha_1_list = compd.comp(ssdeep)
         for i in range(3):
             if sha_1_list[i][1] == 0:
